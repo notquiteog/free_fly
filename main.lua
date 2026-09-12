@@ -2788,12 +2788,28 @@ return function(mod)
       if okP2 and Player2 then
         if not Player2.__freeFlyWrapped then
           Player2.__freeFlyWrapped = true
-          local origPose = Player2.pose
+          -- Gold's Player class has no pose() of its own (src/world/gen2/
+          -- Player.lua draws itself from walkPhase/drawFlip and never needed
+          -- the accessor), so `origPose` here is normally nil.  The
+          -- composition below is therefore the class's REAL answer, not a
+          -- convenience fallback: walkPhase() and drawFlip() are the same
+          -- two methods Gold's own draw path reads (Player.lua:314), and
+          -- spriteYOffset is the OAM y-offset JumpYOffset rides.  Hardcoding
+          -- phase 0 here is what froze every player walk frame in 3D on
+          -- carts where a pipeline poses the player through this accessor
+          -- (Dramatic Shape's VoxelScene.poseOf prefers entity:pose()).
           Player2.pose = function(self)
             local impl = Player2.__freeFlyPoseImpl
             if impl then return impl(self, origPose) end
             if origPose then return origPose(self) end
-            return self.sprite, self.px, self.py, self.facing, 0, false
+            return self.sprite, self.px,
+                   self.py + (self.spriteYOffset or 0),
+                   self.facing,
+                   type(self.walkPhase) == "function" and self:walkPhase()
+                     or 0,
+                   type(self.drawFlip) == "function" and self:drawFlip()
+                     or self.stepFlip == true,
+                   false
           end
           local origDraw = Player2.draw
           Player2.draw = function(self, ox, oy, sc)
@@ -2807,8 +2823,15 @@ return function(mod)
           if origPose then
             sprite, px, py, facing, phase, flip, hop = origPose(p)
           else
+            -- Gold's own composition (the class has no origPose to call;
+            -- see the wrap above for why this mirrors Player.draw's reads)
             sprite, px, py, facing, phase, flip =
-              p.sprite, p.px, p.py, p.facing, 0, false
+              p.sprite, p.px, p.py + (p.spriteYOffset or 0),
+              p.facing,
+              type(p.walkPhase) == "function" and p:walkPhase() or 0,
+              type(p.drawFlip) == "function" and p:drawFlip()
+                or p.stepFlip == true
+            hop = false
           end
           local lift = p.freeFlyAlt
           if lift and lift > 0 then
