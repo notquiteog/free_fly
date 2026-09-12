@@ -1,0 +1,115 @@
+{
+  "modkit": "1.0.0",
+  "packed_at": "2026-08-19T02:15:04Z",
+  "id": "free_fly",
+  "version": "1.8.0",
+  "api": 2,
+  "engine_range": "0.0.0-dev || >=0.1.0 <2.0.0",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 31791,
+      "sha256": "b05f9d14ee396adbf7c0e0f8d4a8e826cfea6cfe879b8ffceab7564ec9b83a10"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8967,
+      "sha256": "b11f85934277ff2458781933f07deb16cacb2812cfad891504ded3f26a876715"
+    },
+    {
+      "path": "lib/FlightInput.lua",
+      "bytes": 480,
+      "sha256": "5c4099ae74c00254120d20c949c78cf4d68a4a2d79978aab2be9366a531b8d6a"
+    },
+    {
+      "path": "lib/FollowerLanding.lua",
+      "bytes": 1186,
+      "sha256": "218aebb16720caeaa7411c7aa2c6fa67538c272998b5c8b30b5de22d4ca023d8"
+    },
+    {
+      "path": "lib/VoxelProvider.lua",
+      "bytes": 1422,
+      "sha256": "d5b3dacb8893a08c934049f96750893be3ed702b3e2d72eba3203e041965b61b"
+    },
+    {
+      "path": "lib/shared/skylib.lua",
+      "bytes": 54964,
+      "sha256": "2fd2136f5a07d1e50a894d4fd8bedaf01a4fb2a065ca58b746c163af50ff6605"
+    },
+    {
+      "path": "main.lua",
+      "bytes": 131206,
+      "sha256": "51f19b61faa1ebc187c04cd18b2c93cb58e0bbf902b8a327daa98a5a0542ddee"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 547,
+      "sha256": "0795591a092df672e63c27404410b86d51fba749807ee629d2032a399f4f4a12"
+    },
+    {
+      "path": "mod.card",
+      "bytes": 1347,
+      "sha256": "82a3645f5ba4fbe6532c47bc645919be952bb5b623eb36d7985b7766e5e20f99"
+    },
+    {
+      "path": "tests/free_fly_compat_test.lua",
+      "bytes": 1614,
+      "sha256": "5376ce6304f8fd517092426d54f0400261ba5a590e8775c2c0b07715700b7576"
+    },
+    {
+      "path": "tests/free_fly_crystal_test.lua",
+      "bytes": 2688,
+      "sha256": "adedb789c20f02b73c4861f3dd24d0d23f4e60e33f5076d6724bb9dce94ee4bc"
+    },
+    {
+      "path": "tests/free_fly_diagonal_test.lua",
+      "bytes": 5169,
+      "sha256": "6fbc9ab54619a14dd8e59cacec683fccddd0503e725176917d815f7a527447ae"
+    },
+    {
+      "path": "tests/free_fly_exports_test.lua",
+      "bytes": 1498,
+      "sha256": "9a4980dd672539cb5f77996dc36c78fadc493ad63b49a87948449407f9e2916b"
+    },
+    {
+      "path": "tests/free_fly_follower_landing_test.lua",
+      "bytes": 2552,
+      "sha256": "db56c3e966e36895b94313ed95a34791ff6b98f588b73c7226f975a86a946e65"
+    },
+    {
+      "path": "tests/free_fly_gen2_load_test.lua",
+      "bytes": 1296,
+      "sha256": "8bcb3b0d810f7947062e30715d3e0856f6475d2ecdb98410629dbd5db36c0e27"
+    },
+    {
+      "path": "tests/free_fly_gold_flight_test.lua",
+      "bytes": 9140,
+      "sha256": "6601ceacff12d97edc156d679dd9ac6943b648bed87dd33031b44822cf5bd75b"
+    },
+    {
+      "path": "tests/free_fly_load_test.lua",
+      "bytes": 656,
+      "sha256": "63fee06a45a2bd5db53e60ea5168eef9c1805f21ea3dc0d2150ff299e6f7a285"
+    },
+    {
+      "path": "tests/free_fly_menu_test.lua",
+      "bytes": 2892,
+      "sha256": "1e688c1b88a557edc9da3df883e8f4d392f4a4ada81cc546ce7e1bb8df9abd99"
+    },
+    {
+      "path": "tests/free_fly_sprite_recovery_test.lua",
+      "bytes": 3668,
+      "sha256": "2fdc70ae05efc47ca8451646ea9205bdc749c6c74e45dd57258ee2d760feb479"
+    },
+    {
+      "path": "tests/voxel_provider_test.lua",
+      "bytes": 1337,
+      "sha256": "bfa7a8f8e18442505cc3cf1ce6bc5bfa7fe1e3f43bd8278c03631bf54600f9bb"
+    }
+  ],
+  "lint": {
+    "no_rom_content": "pass",
+    "schema": "pass",
+    "cross_refs": "pass"
+  }
+}
