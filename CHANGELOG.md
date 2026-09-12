@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.8.2 - the walk frame on Gen 2 (fork)
+
+The Gold Player pose wrap (added in 1.8.1 to carry the flight lift) fell
+back to a hardcoded tuple whenever the class had no original pose() to
+call -- which is always: src/world/gen2/Player.lua draws itself from
+walkPhase()/drawFlip() and never needed the accessor. Phase 0 forever.
+On its own that cost nothing (Gold's flat path never asks), but any 3D
+pipeline that poses the player through entity:pose() -- Dramatic Shape
+does -- read that 0 and drew the stand frame for the whole walk. The
+wrap now composes the real tuple the way Gold's own draw does, and rides
+spriteYOffset in py.
+
 ## 1.8.1 - the flight camera on Gen 2 (fork)
 
 Compatibility fork. One fix, in two halves that only work together.
